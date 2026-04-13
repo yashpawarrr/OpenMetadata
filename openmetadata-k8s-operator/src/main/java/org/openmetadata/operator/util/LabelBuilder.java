@@ -143,7 +143,7 @@ public class LabelBuilder {
     if (value == null || value.isEmpty()) {
       return "";
     }
-
+    
     // Replace invalid characters with hyphens and truncate to 63 chars
     String sanitized =
         value.replaceAll("[^a-zA-Z0-9\\-_.]", "-").replaceAll("-+", "-").replaceAll("^-|-$", "");
@@ -152,8 +152,8 @@ public class LabelBuilder {
       String hash = Integer.toHexString(value.hashCode());
       int trimLen = 63 - hash.length() - 1;
       sanitized = sanitized.substring(0, trimLen) + "-" + hash;
-     }
+    }
 
-      return sanitized;
+    return sanitized;
   }
 }
